@@ -1,0 +1,22 @@
+CREATE DATABASE voiceivr;
+
+CREATE TABLE ivr(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    destination_number VARCHAR(100),
+    greeting_file_to_play VARCHAR(100)
+);
+
+CREATE TABLE input_actions(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    ivr_id INT,
+    dtmf_or_speech VARCHAR(100),
+    transfer_number VARCHAR(100),
+    FOREIGN KEY (ivr_id) REFERENCES ivr(id)
+);
+
+CREATE TABLE web_hook(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    ivr_id INT,
+    url VARCHAR(200),
+    FOREIGN KEY (ivr_id) REFERENCES ivr(id)
+);

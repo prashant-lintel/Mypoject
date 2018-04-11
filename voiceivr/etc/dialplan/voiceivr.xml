@@ -1,0 +1,12 @@
+<include>
+    <extension name="fsapi_inbound" continue="false">
+           <condition field="destination_number" expression="(.*)" >
+            <action application="answer"/>
+            <action application="sleep" data="1000"/>
+            <action application='log' data="INFO executing dialplan for voice ivr inbound call "/>
+            <action application="socket" data="127.0.0.1:8252 async full"/>
+            <action application='log' data="INFO execution completed socket "/>
+           </condition>
+    </extension>
+
+</include>
