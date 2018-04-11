@@ -1,0 +1,7 @@
+twisted==15.0
+txredis
+pycrypto==2.6.1
+pyasn1
+pyopenssl
+service_identity
+oauth2client
